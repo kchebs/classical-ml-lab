@@ -4,10 +4,11 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
 # Prefer active venv, then local .venv, then python3 on PATH
-if [[ -n "${VIRTUAL_ENV:-}" && -x "${VIRTUAL_ENV}/bin/python" ]]; then
-  PY="${VIRTUAL_ENV}/bin/python"
-elif [[ -x "${ROOT}/.venv/bin/python" ]]; then
+# Prefer this repo's .venv over an ambient VIRTUAL_ENV from another project
+if [[ -x "${ROOT}/.venv/bin/python" ]]; then
   PY="${ROOT}/.venv/bin/python"
+elif [[ -n "${VIRTUAL_ENV:-}" && -x "${VIRTUAL_ENV}/bin/python" ]]; then
+  PY="${VIRTUAL_ENV}/bin/python"
 else
   PY="$(command -v python3 || command -v python)"
 fi
