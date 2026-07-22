@@ -136,3 +136,7 @@ jupyter notebook case_studies/customer_segmentation/notebooks/customer_segments.
 ## License
 
 All Rights Reserved. See [LICENSE](LICENSE).
+
+## Portfolio pins
+
+Recommended GitHub profile pin order for this portfolio family: see [`docs/PIN_STRATEGY.md`](docs/PIN_STRATEGY.md).

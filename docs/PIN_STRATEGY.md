@@ -12,3 +12,11 @@ Recommended public pins (profile order):
 Do **not** pin Healthcare unless deepened further.
 
 Resume / LinkedIn should cite the same four primary pins. Do not claim LLM/RAG work from this portfolio.
+
+## How to apply
+
+GitHub does not expose a supported API mutation for user profile pins. Apply manually:
+
+1. Open https://github.com/kchebs
+2. Click **Customize your pins**
+3. Select the repos above in order (max 6)
