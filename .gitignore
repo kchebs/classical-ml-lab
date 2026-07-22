@@ -1,0 +1,23 @@
+.DS_Store
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.env
+.env.*
+.venv/
+venv/
+.idea/
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# Non-redistributable / generated segmentation extracts
+case_studies/customer_segmentation/data/AZDIAS_Subset.csv
+case_studies/customer_segmentation/data/CUSTOMERS_Subset.csv
+
+# Legacy homework leftovers (should not reappear)
+Project_*/
+**/kchebs-analysis.docx
+**/kchebs-analysis.pdf
+**/*_Supervised_Learning.zip
