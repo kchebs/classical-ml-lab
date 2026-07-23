@@ -4,10 +4,10 @@ _RESULTS = _ROOT / 'results'
 _ASSETS = _ROOT / 'assets'
 _DATA = _ROOT / 'data'
 import timeit
-try:
-    import mlrose_hiive as mlrose
-except ImportError:  # pragma: no cover
-    import mlrose
+import sys
+sys.path.insert(0, str(_ROOT))
+from _mlrose import require_mlrose
+mlrose = require_mlrose()
 import matplotlib
 from sklearn.model_selection import cross_validate, train_test_split
 import numpy as my
@@ -30,9 +30,9 @@ bc_df = bc_df.loc[:, co]
 bc_df["diagnosis"].replace("B",0,inplace=True)
 bc_df["diagnosis"] = bc_df["diagnosis"].astype("category")
 
-bcx = my.array(bc_df.values[:,1:],dtype="int64")
+bcx = my.array(bc_df.values[:,1:], dtype="float64")
 bcx = preprocessing.scale(bcx)
-bcy = my.array(bc_df.values[:,0],dtype="int64")
+bcy = my.array(bc_df.values[:,0], dtype="int64")
 
 bc_xtn, bc_xtt, bc_ytn, bc_ytt = train_test_split(my.array(bcx),my.array(bcy), test_size=0.20, random_state=7)
 trgts = ['Benign', 'Malignant']

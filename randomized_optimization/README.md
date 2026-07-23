@@ -11,7 +11,8 @@ Many product and ops problems are combinatorial (assortment, routing, configurat
 Core lab install is enough to browse assets and docs. To **execute** the RO runners:
 
 ```bash
-# Prefer Python 3.10–3.12; mlrose-hiive is fragile on 3.13+
+# Prefer an isolated venv; mlrose-hiive requires joblib>=1.2,<1.3
+# (joblib.my_exceptions was removed in joblib 1.3+). Works on Python 3.10–3.13.
 pip install -r requirements-ro.txt
 ```
 
