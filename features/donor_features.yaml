@@ -1,0 +1,47 @@
+# Feature contract for the donor-prediction census case study.
+# Source: case_studies/donor_prediction/data/census.csv
+dataset: case_studies/donor_prediction/data/census.csv
+target: income
+features:
+  - name: age
+    dtype: int64
+    role: numeric
+  - name: workclass
+    dtype: object
+    role: categorical
+  - name: education_level
+    dtype: object
+    role: categorical
+  - name: education-num
+    dtype: float64
+    role: numeric
+  - name: marital-status
+    dtype: object
+    role: categorical
+  - name: occupation
+    dtype: object
+    role: categorical
+  - name: relationship
+    dtype: object
+    role: categorical
+  - name: race
+    dtype: object
+    role: categorical
+  - name: sex
+    dtype: object
+    role: categorical
+  - name: capital-gain
+    dtype: float64
+    role: numeric
+  - name: capital-loss
+    dtype: float64
+    role: numeric
+  - name: hours-per-week
+    dtype: float64
+    role: numeric
+  - name: native-country
+    dtype: object
+    role: categorical
+  - name: income
+    dtype: object
+    role: target

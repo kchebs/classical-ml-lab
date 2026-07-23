@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fit a quick logistic model on census smoke data and emit F-beta threshold metrics."""
+"""Fit a quick logistic model on census smoke data and emit F-beta + cost metrics."""
 from __future__ import annotations
 
 import json
@@ -16,7 +16,13 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
-from classicallab.donor_threshold import best_threshold, sweep_fbeta_thresholds
+from classicallab.donor_threshold import (
+    FN_COST,
+    FP_COST,
+    best_threshold,
+    best_threshold_by_cost,
+    sweep_fbeta_thresholds,
+)
 
 DATA = ROOT / "case_studies" / "donor_prediction" / "data" / "census.csv"
 OUT = ROOT / "artifacts" / "donor_threshold_metrics.json"
@@ -47,15 +53,31 @@ def main() -> None:
     )
     pipe.fit(X_train, y_train)
     proba = pipe.predict_proba(X_test)[:, 1]
-    rows = sweep_fbeta_thresholds(y_test.to_numpy(), proba, beta=0.5)
-    best = best_threshold(rows)
+    rows = sweep_fbeta_thresholds(
+        y_test.to_numpy(), proba, beta=0.5, fp_cost=FP_COST, fn_cost=FN_COST
+    )
+    best_fbeta = best_threshold(rows)
+    best_cost = best_threshold_by_cost(rows)
     payload = {
-        "schema_version": 1,
+        "schema_version": 2,
         "beta": 0.5,
         "n_test": int(len(y_test)),
-        "best_threshold": best,
+        "cost_matrix": {
+            "fp_cost": FP_COST,
+            "fn_cost": FN_COST,
+            "unit": "USD_per_example_mean",
+            "note": (
+                "FP_COST = wasted outreach; FN_COST = missed donor. "
+                "FP > FN encodes a precision-first preference."
+            ),
+        },
+        "best_threshold": best_fbeta,
+        "best_threshold_by_cost": best_cost,
+        "cost_at_fbeta_best": best_fbeta["expected_cost"],
         "sweep": rows,
-        "note": "Operating point chosen for precision-oriented F0.5 on held-out census fold.",
+        "note": (
+            "Operating points: max F0.5 and min expected cost on a held-out census fold."
+        ),
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, indent=2) + "\n")

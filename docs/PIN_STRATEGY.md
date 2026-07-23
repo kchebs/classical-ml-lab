@@ -4,8 +4,8 @@ Recommended public pins (profile order):
 
 1. **quant-research-lab** — flagship DS/ML research + backtests
 2. **classical-ml-lab** — classical methods + donor / segmentation cases
-3. **RPM_AI_Python** — classical visual-analogy agent + eval harness
-4. **example_SQL** — SQL / analytics engineering + Docker CI
+3. **visual-analogy-agent** — classical visual-analogy agent + eval harness
+4. **sql-analytics-platform** — SQL / analytics engineering + Docker CI
 5. **Product_Analytics** — product analytics storytelling (optional 5th)
 
 Do **not** pin:
