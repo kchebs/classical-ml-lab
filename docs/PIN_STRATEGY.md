@@ -11,7 +11,8 @@ Recommended public pins (profile order):
 Do **not** pin:
 
 - **Healthcare_Analytics** — EDA sample only
-- **AI_PyTorch_Image_Classifier** — tutorial CV sample only
+
+Note: the archived tutorial CV sample (`AI_PyTorch_Image_Classifier`) was removed from the portfolio.
 
 Resume / LinkedIn should cite the same primary pins. Do not claim LLM/RAG work from this portfolio.
 
@@ -21,4 +22,4 @@ GitHub does not expose a supported API mutation for user profile pins. Apply man
 
 1. Open your GitHub profile
 2. Click **Customize your pins**
-3. Select the repos above in order (max 6); leave Healthcare and the flower classifier unpinned
+3. Select the repos above in order (max 6); leave Healthcare_Analytics unpinned
