@@ -23,6 +23,7 @@ run_py() {
   fi
 }
 
+export PYTHONPATH="${ROOT}/src${PYTHONPATH:+:$PYTHONPATH}"
 echo "== classical-ml-lab smoke (interpreter: $PY) =="
 
 run_py - <<'PY'
@@ -56,10 +57,13 @@ if missing:
 print(f"OK layout ({len(required)} required paths present)")
 PY
 
+export PYTHONPATH="${ROOT}/src${PYTHONPATH:+:$PYTHONPATH}"
 echo "== bootstrap customer smoke data =="
 run_py case_studies/customer_segmentation/scripts/bootstrap_data.py
 
+export PYTHONPATH="${ROOT}/src${PYTHONPATH:+:$PYTHONPATH}"
 echo "== pytest =="
 run_py -m pytest -q
 
+run_py scripts/emit_donor_metrics.py
 echo "SMOKE PASS"

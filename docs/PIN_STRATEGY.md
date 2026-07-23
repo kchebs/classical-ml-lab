@@ -6,17 +6,19 @@ Recommended public pins (profile order):
 2. **classical-ml-lab** — classical methods + donor / segmentation cases
 3. **RPM_AI_Python** — classical visual-analogy agent + eval harness
 4. **example_SQL** — SQL / analytics engineering + Docker CI
-5. **Product_Analytics** — product analytics storytelling (optional 5th/6th)
-6. **AI_PyTorch_Image_Classifier** — CV transfer learning (optional)
+5. **Product_Analytics** — product analytics storytelling (optional 5th)
 
-Do **not** pin Healthcare unless deepened further.
+Do **not** pin:
 
-Resume / LinkedIn should cite the same four primary pins. Do not claim LLM/RAG work from this portfolio.
+- **Healthcare_Analytics** — EDA sample only
+- **AI_PyTorch_Image_Classifier** — tutorial CV sample only
+
+Resume / LinkedIn should cite the same primary pins. Do not claim LLM/RAG work from this portfolio.
 
 ## How to apply
 
 GitHub does not expose a supported API mutation for user profile pins. Apply manually:
 
-1. Open https://github.com/kchebs
+1. Open your GitHub profile
 2. Click **Customize your pins**
-3. Select the repos above in order (max 6)
+3. Select the repos above in order (max 6); leave Healthcare and the flower classifier unpinned

@@ -66,6 +66,10 @@ flowchart TB
 - Donor case: ensemble models beat Naive Bayes on F-beta when precision is prioritized — see case README.
 - Segmentation case: runnable PCA→K-Means pipeline on smoke or full extracts — see case README and tests.
 
+## Shared package
+
+[`src/classicallab/`](src/classicallab/) holds reusable utilities (cost-sensitive donor F-beta thresholds, MDP stochasticity checks). Smoke emits `artifacts/donor_threshold_metrics.json`.
+
 ## Technologies
 
 Python 3 · pandas · NumPy · scikit-learn · matplotlib · seaborn · Jupyter · mdptoolbox-hiive · gymnasium · pytest · (optional) mlrose-hiive
