@@ -70,6 +70,7 @@ class QLearning:
                 else:
                     self.Q[s, a] = r
                 r_episode += r
+                s = next_s
                 step += 1
 
             self.time = time.time() - strt

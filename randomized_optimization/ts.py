@@ -4,16 +4,13 @@ _RESULTS = _ROOT / 'results'
 _ASSETS = _ROOT / 'assets'
 _DATA = _ROOT / 'data'
 import timeit
-try:
-    import mlrose_hiive as mlrose
-except ImportError:  # pragma: no cover
-    import mlrose
+import sys
+sys.path.insert(0, str(_ROOT))
+from _mlrose import require_mlrose
+mlrose = require_mlrose()
+from mlrose_hiive.generators import TSPGenerator
 import matplotlib.pyplot as pt
 import numpy as my
-try:
-    from mlrose_hiive.generators import TSPGenerator
-except ImportError:  # pragma: no cover
-    from mlrose.generators import TSPGenerator
 import random
 random.seed(7)
 
