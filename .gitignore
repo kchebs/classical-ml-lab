@@ -18,6 +18,6 @@ case_studies/customer_segmentation/data/CUSTOMERS_Subset.csv
 
 # Legacy homework leftovers (should not reappear)
 Project_*/
-**/kchebs-analysis.docx
-**/kchebs-analysis.pdf
+**/analysis-export.docx
+**/analysis-export.pdf
 **/*_Supervised_Learning.zip
